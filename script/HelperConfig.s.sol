@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-import {Script,console} from "forge-std/Script.sol";
+import {Script, console} from "forge-std/Script.sol";
 import {VRFCoordinatorV2_5Mock} from
     "lib/chainlink-brownie-contracts/contracts/src/v0.8/vrf/mocks/VRFCoordinatorV2_5Mock.sol";
 import {LinkToken} from "test/mocks/LinkToken.sol";
+
 abstract contract CodeConstants {
     uint256 public constant ETH_SEPOLIA_CHAIN_ID = 11155111;
     uint256 public constant LOCAL_CHAIN_ID = 31337;
@@ -60,9 +61,8 @@ contract HelperConfig is Script, CodeConstants {
             gasLane: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae,
             callbackGasLimit: 500000, // 500,000 gas
             subscriptionId: 0,
-            link:0x779877A7B0D9E8603169DdbD7836e478b4624789,
-            account:0x8554b93451Cef09f22Dc072F8974a06a9683EbAa
-
+            link: 0x779877A7B0D9E8603169DdbD7836e478b4624789,
+            account: 0x8554b93451Cef09f22Dc072F8974a06a9683EbAa
         });
     }
 
@@ -85,13 +85,10 @@ contract HelperConfig is Script, CodeConstants {
             // gasLane value doesn't matter.
             gasLane: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae,
             callbackGasLimit: 500000, // 500,000 gas
-            subscriptionId:0,
-            link:address(linkToken),
-            account:0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38
+            subscriptionId: 0,
+            link: address(linkToken),
+            account: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38
         });
         return localNetworkConfig;
     }
- 
 }
-
-

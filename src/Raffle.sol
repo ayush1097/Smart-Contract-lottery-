@@ -63,7 +63,6 @@ contract Raffle is VRFConsumerBaseV2Plus {
     event WinnerPicked(address indexed winner);
     event RequestedRaffleWinner(uint256 indexed requestId);
 
-
     constructor(
         uint256 entranceFee,
         uint256 interval,
@@ -129,9 +128,9 @@ contract Raffle is VRFConsumerBaseV2Plus {
         if (!upkeepNeeded) {
             revert Raffle_UpkeepNotNeeded(address(this).balance, s_players.length, uint256(s_raffleState));
         } //Effects
-        
+
         s_raffleState = RaffleState.CALCULATING;
-        VRFV2PlusClient.RandomWordsRequest memory request  = VRFV2PlusClient.RandomWordsRequest({
+        VRFV2PlusClient.RandomWordsRequest memory request = VRFV2PlusClient.RandomWordsRequest({
             keyHash: i_gasLane,
             subId: i_subscriptionId,
             requestConfirmations: REQUEST_CONFIRMATIONS,
@@ -142,7 +141,7 @@ contract Raffle is VRFConsumerBaseV2Plus {
                 VRFV2PlusClient.ExtraArgsV1({nativePayment: false})
             )
         }); //Interactions
-         uint256 requestId =s_vrfCoordinator.requestRandomWords(request);
+        uint256 requestId = s_vrfCoordinator.requestRandomWords(request);
         emit RequestedRaffleWinner(requestId);
     }
     //getter functions
@@ -176,12 +175,15 @@ contract Raffle is VRFConsumerBaseV2Plus {
     function getPlayer(uint256 indexOfPlayer) external view returns (address) {
         return s_players[indexOfPlayer];
     }
+
     function getRecentWinner() public view returns (address) {
         return s_recentWinner;
     }
+
     function getNumberOfPlayers() public view returns (uint256) {
         return s_players.length;
     }
+
     function getLastTimeStamp() public view returns (uint256) {
         return s_lastTimeStamp;
     }
