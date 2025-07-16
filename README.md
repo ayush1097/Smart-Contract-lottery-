@@ -3,7 +3,7 @@
 
 ## About
 
-This code is to create a proveably random smart contract lottery.
+This project implements a decentralized Raffle (Lottery) smart contract using [Foundry](https://book.getfoundry.sh/), Chainlink VRF, and Automation to randomly pick winners on-chain.
 
 ## What we want it to do?
 
