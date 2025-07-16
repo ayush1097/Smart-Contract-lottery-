@@ -39,8 +39,8 @@ This project implements a decentralized Raffle (Lottery) smart contract using [F
 ## Quickstart
 
 ```
-git clone https://github.com/Cyfrin/foundry-smart-contract-lottery-cu
-cd foundry-smart-contract-lottery-cu
+git clone https://github.com/ayush1097/Smart-Contract-lottery-
+cd Smart-Contract-lottery-
 forge build
 ```
 
